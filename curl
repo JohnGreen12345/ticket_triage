@@ -1,0 +1,11 @@
+cd "c:\Users\Mindrix\Documents\Projects\job_search\March resume\Dayforce\ticket-triage"
+
+
+$body = @{
+  title       = "Cannot log in"
+  description = "I reset my password but still get an error"
+} | ConvertTo-Json
+Invoke-RestMethod -Uri "http://localhost:8000/recommendations" `
+  -Method POST `
+  -ContentType "application/json" `
+  -Body $body
